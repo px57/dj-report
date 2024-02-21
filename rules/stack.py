@@ -2,4 +2,4 @@
 
 from kernel.interfaces.stack import RulesStack
 
-NOTIFICATION_RULESTACK = RulesStack()
+REPORT_RULESTACK = RulesStack()
