@@ -6,9 +6,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    # path(
-    #     'signin/', 
-    #     views.signin, 
-    #     name='profiles__signin'
-    # ),
+    path(
+        'load_all/', 
+        views.load_all, 
+        name='report__load_all'
+    ),
 ]

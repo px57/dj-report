@@ -48,7 +48,6 @@ class ReportTemplateTranslation(BaseMetadataModel):
         serialize = model_to_dict(self)
         return serialize
 
-
 class ReportTemplate(BaseMetadataModel):
     """
     The report model.
