@@ -115,6 +115,19 @@ class Reported(BaseMetadataModel):
         blank=True
     )
 
+    # -> Get the model object
+    relatedModel = models.CharField(
+        max_length=255, 
+        null=True, 
+        blank=True
+    )
+
+    # -> Get the nice object
+    relatedModelId = models.IntegerField(
+        null=True, 
+        blank=True
+    )
+
     @serializer__serialize__
     def serialize(self, request):
         """
