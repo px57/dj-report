@@ -23,7 +23,7 @@ class ReportTemplateAdmin(admin.ModelAdmin):
     """
     The report template admin.
     """
-    list_display = ('title',)
+    list_display = ('title', 'interface')
     search_fields = ('title',)
     inlines = [ReportTemplateTranslationInline]
 

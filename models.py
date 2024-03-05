@@ -8,6 +8,7 @@ from report.rules.stack import REPORT_RULESTACK
 from kernel.models.serialize import serializer__serialize__
 from kernel.i18n.models import translateDBQuerySet, translateDBObject
 from kernel.models.serialize import serializer__init__
+from kernel.http.serialize.media import serialize_file_fields, serialize_phone_number, serialize_size_video
 
 class ReportTemplateTranslation(BaseMetadataModel):
     """
@@ -65,7 +66,10 @@ class ReportTemplate(BaseMetadataModel):
     )
 
     title = models.CharField(
-        max_length=100
+        max_length=100,
+        default='',
+        blank=True,
+        null=True
     )
 
     description = models.TextField()
@@ -79,6 +83,15 @@ class ReportTemplate(BaseMetadataModel):
     order = models.IntegerField(
         default=0
     )
+
+    @serializer__serialize__
+    def serialize(self, request):
+        """
+        Serialize the report template translation.
+        """
+        serialize = model_to_dict(self)
+        serialize['file'] = serialize_file_fields(request, self.file)
+        return serialize
 
     class Meta:
         ordering = ['order']
@@ -101,3 +114,11 @@ class Reported(BaseMetadataModel):
         null=True,
         blank=True
     )
+
+    @serializer__serialize__
+    def serialize(self, request):
+        """
+        Serialize the report template translation.
+        """
+        serialize = model_to_dict(self)
+        return serialize

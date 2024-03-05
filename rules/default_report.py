@@ -2,11 +2,15 @@
 
 from django.utils import timezone
 import os
-from notification.rules.stack import REPORT_RULESTACK
+
+from report.rules.stack import REPORT_RULESTACK
+
+
 from kernel.interfaces.interfaces import InterfaceManager
+
 import PIL
 
-class DefaultRuleClass(InterfaceManager):
+class DefaultReportRule(InterfaceManager):
     """
     The default rule class. 
     """
@@ -21,43 +25,14 @@ class DefaultRuleClass(InterfaceManager):
     """
     allow = True
 
-    def __init__(self) -> None:
-        super().__init__()
+    def db_load_all(self):
+        """
+        Load all the report templates.
+        """
+        from report.models import ReportTemplate
+        return ReportTemplate.objects.filter(
+            interface=self.label,
+        )
 
-    """
-    The constructor method.
-    """
-    def check(self, *args, **kwargs):
-        return True
 
-    """
-    The run method.
-    """   
-    def run(self, *args, **kwargs):
-        return True
-
-    """
-    The error method.
-    """
-    def error(self, *args, **kwargs):
-        return True
-    
-    """
-    After send the notification, the response method is called.
-    """
-    def response(self, *args, **kwargs):
-        return True
-    
-    """
-    The click method.
-    """
-    def click(self, *args, **kwargs):
-        return True
-
-    """
-    The open method.
-    """
-    def open(self, *args, **kwargs):
-        return True
-
-REPORT_RULESTACK.set_rule(DefaultRuleClass())
+REPORT_RULESTACK.set_rule(DefaultReportRule)

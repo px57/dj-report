@@ -11,4 +11,14 @@ urlpatterns = [
         views.load_all, 
         name='report__load_all'
     ),
+    path(
+        'send_one/', 
+        views.send_one, 
+        name='report__send_one'
+    ),
+    path(
+        'send_multiple/', 
+        views.send_multiple, 
+        name='report__send_multiple'
+    ),
 ]
