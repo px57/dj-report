@@ -3,12 +3,12 @@ from django.conf import settings
 from django.db import models
 from django.forms.models import model_to_dict
 
-from kernel.models.base_metadata_model import BaseMetadataModel
+from gpm.models.base_metadata_model import BaseMetadataModel
 from report.rules.stack import REPORT_RULESTACK
-from kernel.models.serialize import serializer__serialize__
-from kernel.i18n.models import translateDBQuerySet, translateDBObject
-from kernel.models.serialize import serializer__init__
-from kernel.http.serialize.media import serialize_file_fields, serialize_phone_number, serialize_size_video
+from gpm.models.serialize import serializer__serialize__
+from gpm.i18n.models import translateDBQuerySet, translateDBObject
+from gpm.models.serialize import serializer__init__
+from gpm.http.serialize.media import serialize_file_fields, serialize_phone_number, serialize_size_video
 
 class ReportTemplateTranslation(BaseMetadataModel):
     """

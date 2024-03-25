@@ -6,7 +6,7 @@ import os
 from report.rules.stack import REPORT_RULESTACK
 
 
-from kernel.interfaces.interfaces import InterfaceManager
+from gpm.interfaces.interfaces import InterfaceManager
 
 import PIL
 

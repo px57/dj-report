@@ -2,9 +2,9 @@
 
 from django.shortcuts import render
 
-from kernel.http.decorators import load_json
-from kernel.http import load_response
-from kernel.i18n.models import translateDBQuerySet
+from gpm.http.decorators import load_json
+from gpm.http import load_response
+from gpm.i18n.models import translateDBQuerySet
 
 from report.rules.stack import REPORT_RULESTACK
 from report.models import Reported, ReportTemplate
